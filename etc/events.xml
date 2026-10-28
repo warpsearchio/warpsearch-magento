@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_after">
+        <observer name="warpsearch_product_save" instance="WarpSearch\Search\Observer\ProductChanged"/>
+    </event>
+    <event name="catalog_product_delete_before">
+        <observer name="warpsearch_product_delete_before" instance="WarpSearch\Search\Observer\ProductChanged"/>
+    </event>
+    <event name="catalog_product_delete_after_done">
+        <observer name="warpsearch_product_delete_after" instance="WarpSearch\Search\Observer\ProductChanged"/>
+    </event>
+    <event name="cataloginventory_stock_item_save_commit_after">
+        <observer name="warpsearch_stock_save" instance="WarpSearch\Search\Observer\ProductChanged"/>
+    </event>
+    <event name="catalog_category_change_products">
+        <observer name="warpsearch_category_products" instance="WarpSearch\Search\Observer\ProductChanged"/>
+    </event>
+</config>

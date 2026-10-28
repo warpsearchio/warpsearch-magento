@@ -1,0 +1,65 @@
+{
+    "name": "warpsearch/module-search",
+    "description": "WarpSearch for Magento 2 / Adobe Commerce: instant, relevance-ranked product quick search and catalog indexing, powered by the WarpSearch serverless search service (https://warpsearch.io).",
+    "type": "magento2-module",
+    "license": "MIT",
+    "keywords": [
+        "magento",
+        "magento2",
+        "magento-2",
+        "adobe-commerce",
+        "magento2-module",
+        "search",
+        "product-search",
+        "quick-search",
+        "autocomplete",
+        "instant-search",
+        "ecommerce",
+        "elasticsearch-alternative",
+        "opensearch-alternative",
+        "warpsearch"
+    ],
+    "homepage": "https://warpsearch.io/docs/integration-magento",
+    "authors": [
+        {
+            "name": "WarpSearch by BigData Boutique",
+            "email": "hello@warpsearch.io",
+            "homepage": "https://warpsearch.io/"
+        }
+    ],
+    "support": {
+        "email": "hello@warpsearch.io",
+        "issues": "https://github.com/warpsearchio/warpsearch-magento/issues",
+        "source": "https://github.com/warpsearchio/warpsearch-magento",
+        "docs": "https://warpsearch.io/docs/integration-magento"
+    },
+    "require": {
+        "php": "~8.2.0||~8.3.0||~8.4.0",
+        "magento/framework": "~103.0.6",
+        "magento/framework-message-queue": "~100.4.6",
+        "magento/module-bundle": "~101.0.6",
+        "magento/module-catalog": "~104.0.6",
+        "magento/module-catalog-inventory": "~100.4.6",
+        "magento/module-config": "~101.2.6",
+        "magento/module-configurable-product": "~100.4.6",
+        "magento/module-grouped-product": "~100.4.6",
+        "magento/module-mysql-mq": "~100.4.4",
+        "magento/module-store": "~101.1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "WarpSearch\\Search\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WarpSearch\\Search\\Test\\": "Test/"
+        }
+    }
+}

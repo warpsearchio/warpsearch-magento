@@ -1,0 +1,15 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \WarpSearch\Search\ViewModel\QuickSearch $viewModel */
+$viewModel = $block->getData('view_model');
+if (!$viewModel->isEnabled()) {
+    return;
+}
+?>
+<script type="text/x-magento-init">
+{
+    "#search": {
+        "WarpSearch_Search/js/quick-search": <?= /* @noEscape */ $viewModel->getJsConfig() ?>
+    }
+}
+</script>

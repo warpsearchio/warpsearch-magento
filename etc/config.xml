@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <warpsearch>
+            <general>
+                <enabled>0</enabled>
+                <api_url>https://api.warpsearch.io</api_url>
+                <collection>magento</collection>
+                <index_name>magento</index_name>
+                <text_analysis>standard</text_analysis>
+            </general>
+            <indexing>
+                <use_queue>1</use_queue>
+                <batch_size>100</batch_size>
+                <index_out_of_stock>0</index_out_of_stock>
+            </indexing>
+            <storefront>
+                <quick_search_enabled>1</quick_search_enabled>
+                <min_chars>2</min_chars>
+                <max_results>6</max_results>
+                <debounce_ms>200</debounce_ms>
+            </storefront>
+        </warpsearch>
+    </default>
+</config>

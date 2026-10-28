@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="warpsearch" translate="label" sortOrder="650">
+            <label>WarpSearch</label>
+        </tab>
+        <section id="warpsearch" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Search</label>
+            <tab>warpsearch</tab>
+            <resource>WarpSearch_Search::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Connection</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable WarpSearch</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Per store view. Indexing and the storefront quick search only run for store views where this is Yes.</comment>
+                </field>
+                <field id="api_key" translate="label comment" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <label>API key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <comment>A key (ws_live_...) with the writer role on the collection. It is only used server side; the browser never sees it.</comment>
+                </field>
+                <field id="api_url" translate="label" type="text" sortOrder="30" showInDefault="1">
+                    <label>API URL</label>
+                </field>
+                <field id="collection" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1">
+                    <label>Collection</label>
+                    <comment>Create it once in the WarpSearch console. All store views share it; documents carry their store view.</comment>
+                </field>
+                <field id="index_name" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1">
+                    <label>Index name</label>
+                    <comment>Discriminator stored on every document, so several Magento installations can share a collection. Use a distinct value per installation/environment.</comment>
+                </field>
+                <field id="text_analysis" translate="label comment" type="select" sortOrder="60" showInDefault="1">
+                    <label>Text analysis</label>
+                    <source_model>WarpSearch\Search\Model\Config\Source\TextAnalysis</source_model>
+                    <comment>Changing this changes field names; run a full reindex afterwards.</comment>
+                </field>
+            </group>
+            <group id="indexing" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Indexing</label>
+                <field id="use_queue" translate="label comment" type="select" sortOrder="10" showInDefault="1">
+                    <label>Index through the message queue</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Recommended. No: changes are sent synchronously during the save request.</comment>
+                </field>
+                <field id="batch_size" translate="label comment" type="text" sortOrder="20" showInDefault="1">
+                    <label>Documents per request</label>
+                    <comment>Keep within your WarpSearch plan's documents per write request.</comment>
+                </field>
+                <field id="index_out_of_stock" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Index out-of-stock products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="storefront" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Storefront quick search</label>
+                <field id="quick_search_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable quick search dropdown</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="min_chars" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum characters</label>
+                </field>
+                <field id="max_results" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum results</label>
+                </field>
+                <field id="debounce_ms" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Debounce (ms)</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
